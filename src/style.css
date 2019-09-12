@@ -1,0 +1,73 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./img/pic2.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+    width: 100%;
+    color: rgba(255, 255, 240, 0.7);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 80%;
+    padding: 45px;
+    font-size: 1.5em;
+
+}
+
+.form p a {
+    font-size: 0.6em;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgba(255, 255, 240, 0.7);
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 1;
+    width: 100%;
+    font-size: 0.8em;
+    padding: 10px;
+    outline: 1;
+    border: 0;
+    margin: 10px 0 15px;
+}
+
+button {
+    margin: 20px 0;
+    width: 100%;
+    font-size: 0.8em;
+    padding: 10px;
+    color: rgba(255, 255, 240, 0.7);
+    background-color: rgba(0, 128, 0, 0.63);
+    border: none;
+    cursor: pointer;
+}
+
+.login-form {
+    width: 80%;
+}
+
+.register-form {
+    width: 80%;
+    display: none;
+}

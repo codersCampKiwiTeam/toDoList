@@ -1,0 +1,220 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./img/pic2.jpg");
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+nav {
+    height: 10vh;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+}
+
+.search-div {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.fa-search {
+    margin-left: 20px;
+    color: ivory;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.logout {
+    flex-grow: 1;
+    font-size: 1.2em;
+    text-align: right;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: ivory;
+    cursor: pointer;
+}
+
+#search {
+    width: 25vw;
+    font-size: 1em;
+    padding: 10px;
+}
+
+.logout:hover {
+    font-weight: bold;
+}
+
+.wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+
+/* Lists */
+
+.lists,
+.tasks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 85vh;
+    width: 30vw;
+    background-color: rgba(255, 255, 240, 0.5);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.lists ul,
+.tasks ul {
+    flex-grow: 1;
+}
+
+.lists p,
+.tasks p {
+    font-size: 2em;
+    padding: 15px;
+    color: ivory;
+    border-bottom: 2px solid ivory;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.tasks p {
+    background-color: rgba(255, 255, 240, 0.7);
+    color: black;
+}
+
+.lists li,
+.tasks li {
+    display: flex;
+    margin: 20px;
+    list-style: none;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 240, 0.7);
+    border-radius: 12px;
+}
+
+.lists li:nth-of-type(2) {
+    background-color: rgba(197, 197, 72, 0.7);
+}
+
+.lists li:nth-of-type(3) {
+    background-color: rgba(207, 126, 59, 0.7);
+}
+
+.tasks li li {
+    border-bottom: none;
+}
+
+.lists li:last-of-type,
+.tasks li:last-of-type {
+    border-bottom: none;
+}
+
+.lists a,
+.tasks a {
+    display: block;
+    color: rgb(27, 29, 41);
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 10px;
+    text-align: center;
+    width: 70%;
+}
+
+.lists .icons,
+.tasks .icons {
+    padding: 15px 0;
+    width: 30%;
+    color: rgb(44, 44, 39);
+}
+
+.fa-trash-alt,
+.fa-check {
+    font-size: 1em;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+#add-list,
+.add-new-task {
+    margin: 40px 15px 0 15px;
+    width: calc(100% - 30px);
+    font-size: 1em;
+    padding: 10px;
+}
+
+.add-new-task {
+    color: ivory;
+    background-color: rgba(0, 128, 0, 0.63);
+    border: none;
+}
+
+
+/* Tasks */
+
+.tasks {
+    position: relative;
+    width: 60vw;
+    min-height: 85vh;
+}
+
+
+/* Add task */
+.add-task {
+    /* display: none; */
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 70vh;
+    min-height: 400px;
+    width: 40vw;
+    background-color: rgba(255, 255, 240, 0.9);
+    color: black;
+    font-size: 1.2em;
+}
+
+.add-task p {
+    background-color: rgb(0, 0, 0, 0.8);
+    color: ivory;
+}
+
+.add-task li {
+    font-size: 1.2em;
+    border: none;
+    border-radius: 0;
+}
+
+.add-task input,
+.add-task textarea {
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 0.8em;
+    padding: 5px;
+    text-align: center;
+    vertical-align: top;
+    border-radius: 5px;
+}
+
+.add-task-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px;
+    font-size: 0.8em;
+    cursor: pointer;
+    color: ivory;
+    background-color: rgba(0, 128, 0, 0.63);
+    border: none;
+}

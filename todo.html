@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To do app</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/list.css">
+
+</head>
+
+<body>
+    <nav class="navigation">
+        <div class="search-div"><input id="search" type="text" placeholder="Wpisz szukane zadanie...">
+            <i class="fas fa-search"></i>
+
+        </div>
+        <button class="logout">Wyloguj się</button>
+    </nav>
+    <div class="wrap">
+        <div class="lists">
+            <p>Twoje listy</p>
+            <ul>
+                <li><a href="#">Dzisiaj</a>
+                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                </li>
+                <li><a href="#">Praca</a>
+                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                </li>
+                <li><a href="#">Dom</a>
+                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                </li>
+            </ul>
+            <input id="add-list" type="text" placeholder=" +  Stwórz nową listę...">
+
+        </div>
+        <div class="tasks">
+            <p>Dzisiaj</p>
+            <ul>
+                <li><a href="#">Zadanie1</a>
+                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                    <div>
+                        <ul>
+                            <li>Data wykonania:.....</li>
+                            <li>Komentarz:.....</li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Zadanie2</a>
+                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                </li>
+                <li><a href="#">Zadanie3</a>
+                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                </li>
+            </ul>
+            <button class="add-new-task" type="submit">Dodaj nowe zadanie...</button>
+
+            <div class="add-task">
+                <p>Nowe zadanie</p>
+
+                <ul>
+                    <li><label for="name-task">Nazwa zadania: </label><input id="name-task" type="text"
+                            placeholder="Nazwa zadania..."></li>
+                    <li><label for="date-task">Data wykonania: </label><input id="date-task" type="date"
+                            placeholder="Data wykonania..."></li>
+                    <li><label for="description">Opis: </label><textarea id="description" rows="4"
+                            placeholder="Tutaj wpisz opis..."></textarea></li>
+                </ul>
+                <button class="add-task-btn" type="submit">Dodaj</button>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
