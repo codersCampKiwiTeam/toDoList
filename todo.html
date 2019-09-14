@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/list.css">
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js
+    "></script>
 </head>
 
 <body>
-    <nav class="navigation">
+    <nav class="navigation main">
         <div class="search-div"><input id="search" type="text" placeholder="Wpisz szukane zadanie...">
             <i class="fas fa-search"></i>
 
@@ -21,7 +22,7 @@
         <button class="logout">Wyloguj się</button>
     </nav>
     <div class="wrap">
-        <div class="lists">
+        <div class="lists main">
             <p>Twoje listy</p>
             <ul>
                 <li><a href="#">Dzisiaj</a>
@@ -38,25 +39,27 @@
 
         </div>
         <div class="tasks">
-            <p>Dzisiaj</p>
-            <ul>
-                <li><a href="#">Zadanie1</a>
-                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                    <div>
-                        <ul>
-                            <li>Data wykonania:.....</li>
-                            <li>Komentarz:.....</li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">Zadanie2</a>
-                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                </li>
-                <li><a href="#">Zadanie3</a>
-                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                </li>
-            </ul>
-            <button class="add-new-task" type="submit" onclick="showDiv()">Dodaj nowe zadanie...</button>
+            <div class="main">
+                <p>Dzisiaj</p>
+                <ul>
+                    <li><a href="#">Zadanie1</a>
+                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                        <div>
+                            <ul>
+                                <li>Data wykonania:.....</li>
+                                <li>Komentarz:.....</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Zadanie2</a>
+                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                    </li>
+                    <li><a href="#">Zadanie3</a>
+                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                    </li>
+                </ul>
+            </div>
+            <button class="add-new-task" type="submit">Dodaj nowe zadanie...</button>
 
             <div class="add-task" style="display: none;">
                 <p>Nowe zadanie</p>
