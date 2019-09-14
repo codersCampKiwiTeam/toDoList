@@ -13,6 +13,7 @@ $('.form button').click(function () {
 })
 
 // Logowanie:
+let user;
 const logIn = () => {
     let loginName = document.getElementById("login-name").value;
     let loginPassword = document.getElementById("login-password").value;
@@ -39,6 +40,39 @@ const logData = async (loginName, loginPassword) => {
         else{
             var queryString = `?myParam=${res}`;
             window.location.href = "./todo.html" + queryString;
+        }
+    })
+    .catch(err => console.log(err));
+}
+
+// Rejestracja:
+const register = async () => {
+    let registerEmail = document.getElementById("register-email").value;
+    let registerName = document.getElementById("register-name").value;
+    let registerPassword = document.getElementById("register-password").value;
+    registerData(registerEmail, registerName, registerPassword);
+}
+const registerData = async (registerEmail, registerName, registerPassword) => {
+    let registerUser = {
+        "register-email": registerEmail,
+        "register-name": registerName,
+        "register-password": registerPassword
+    }
+    // Autentykacja do poprawy
+    await fetch('https://herokuapp.com/api/auth', { // Dodać adres!
+        method: "POST",
+        body: JSON.stringify(registerUser),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.text())
+    .then(res => {console.log(res)
+        if (res[0] !== "{") {
+            return alert(res);
+        }
+        else {
+            return window.location.href = "./index.html"
         }
     })
     .catch(err => console.log(err));
