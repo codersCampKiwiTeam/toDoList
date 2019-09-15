@@ -9,11 +9,12 @@ body {
     background-position: center;
     background-size: cover;
     min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+
 }
 
-nav {
+.navigation {
     height: 10vh;
-    padding: 0 60px;
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
@@ -21,7 +22,7 @@ nav {
 }
 
 .search-div {
-    flex-grow: 1;
+    flex: 1 1 40%;
     text-align: center;
 }
 
@@ -33,13 +34,18 @@ nav {
 }
 
 .logout {
-    flex-grow: 1;
+    flex: 1 1 20%;
     font-size: 1.2em;
-    text-align: right;
+    text-align: center;
     border: none;
     background-color: rgba(0, 0, 0, 0);
     color: ivory;
     cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.logout:hover {
+    font-weight: bold;
 }
 
 #search {
@@ -48,8 +54,13 @@ nav {
     padding: 10px;
 }
 
-.logout:hover {
+.app-name {
+    flex: 1 1 40%;
+    font-size: 2em;
+    text-align: center;
+    color: ivory;
     font-weight: bold;
+    font-style: italic;
 }
 
 .wrap {
@@ -68,7 +79,7 @@ nav {
     justify-content: space-between;
     min-height: 85vh;
     width: 30vw;
-    background-color: rgba(255, 255, 240, 0.5);
+    background-color: rgba(255, 249, 218, 0.5);
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
@@ -114,6 +125,8 @@ nav {
 
 .tasks li li {
     border-bottom: none;
+    background-color: rgba(0, 0, 0, 0);
+
 }
 
 .lists li:last-of-type,
@@ -129,14 +142,23 @@ nav {
     font-size: 1.5em;
     padding: 10px;
     text-align: center;
-    width: 70%;
+    width: 65%;
+    transition: 0.2s linear;
+}
+
+.lists a:hover,
+.tasks a:hover {
+    font-weight: bold;
+    transform: scale(1.2)
 }
 
 .lists .icons,
 .tasks .icons {
     padding: 15px 0;
-    width: 30%;
+    width: 35%;
     color: rgb(44, 44, 39);
+    text-align: right;
+    padding-right: 5px;
 }
 
 .fa-trash-alt,
@@ -144,6 +166,13 @@ nav {
     font-size: 1em;
     margin: 0 8px;
     cursor: pointer;
+    transition: 0.2s linear;
+}
+
+.fa-trash-alt:hover,
+.fa-check:hover {
+    font-weight: bold;
+    transform: scale(1.4)
 }
 
 #add-list,
@@ -158,6 +187,12 @@ nav {
     color: ivory;
     background-color: rgba(0, 128, 0, 0.63);
     border: none;
+    transition: 0.2s linear;
+}
+
+.add-new-task:hover {
+    transform: scale(1.03);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 
@@ -172,7 +207,6 @@ nav {
 
 /* Add task */
 .add-task {
-    /* display: none; */
     position: absolute;
     bottom: 80px;
     left: 50%;
@@ -217,4 +251,131 @@ nav {
     color: ivory;
     background-color: rgba(0, 128, 0, 0.63);
     border: none;
+}
+
+/* Media queries */
+
+@media (max-width: 840px) and (min-width: 600px) {
+
+    .fa-search {
+        font-size: 1em;
+    }
+
+    .logout {
+        font-size: 1em;
+    }
+
+    #search {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    .app-name {
+        font-size: 1.5em;
+    }
+
+
+    /* Lists */
+
+    .lists p,
+    .tasks p {
+        font-size: 1.8em;
+    }
+
+    .lists li {
+        margin: 20px 10px;
+    }
+
+    .lists a,
+    .tasks a {
+        font-size: 1.3em;
+        padding: 10px 0;
+        width: 60%;
+    }
+
+    .lists.icons,
+    .tasks.icons {
+        width: 40%;
+        padding: 10px 0;
+    }
+
+    .fa-trash-alt,
+    .fa-check {
+        font-size: 0.8em;
+        margin: 0 5px;
+        text-align: right;
+    }
+
+    #add-list,
+    .add-new-task {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    /* Add task */
+    .add-task {
+        font-size: 1.2em;
+    }
+
+    .add-task li {
+        font-size: 0.8em;
+    }
+
+    .add-task input,
+    .add-task textarea {
+        margin-bottom: 8px;
+        font-size: 1em;
+    }
+}
+
+
+@media (max-width:600px) {
+    .navigation {
+        min-height: 20vh;
+        flex-wrap: wrap-reverse;
+    }
+
+    .logout {
+        font-size: 1em;
+    }
+
+    .app-name {
+        flex-basis: 70%;
+    }
+
+    #search {
+        width: 80vw;
+    }
+
+    .wrap {
+        flex-wrap: wrap;
+        margin: 0 20px;
+    }
+
+    .lists,
+    .tasks {
+        width: 100vw;
+        min-height: 10vh;
+    }
+
+    .add-task {
+        width: 90vw;
+    }
+
+    .lists a:hover,
+    .tasks a:hover,
+    .fa-trash-alt:hover,
+    .fa-check:hover {
+        font-weight: normal;
+        transform: scale(1)
+    }
+
+    .add-new-task:hover {
+        transform: scaleX(1) scaleY(1);
+        background-color: rgba(0, 128, 0, 0.63);
+    }
+
+    .logout:hover {
+        font-weight: normal;
+    }
 }
