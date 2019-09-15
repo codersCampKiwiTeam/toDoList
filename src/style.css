@@ -71,3 +71,20 @@ button {
     width: 80%;
     display: none;
 }
+
+@media (max-width: 500px) {
+
+    .form {
+        font-size: 1em;
+        padding: 15px;
+    }
+
+    .login-form {
+        width: 90%;
+    }
+
+    .register-form {
+        width: 90%;
+        display: none;
+    }
+}
