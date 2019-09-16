@@ -26,22 +26,54 @@
         <div class="lists main">
             <p>Twoje listy</p>
             <ul>
-                <li><a href="#">Dzisiaj</a>
-                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                </li>
-                <li><a href="#">Praca</a>
-                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                </li>
-                <li><a href="#">Dom</a>
-                    <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                </li>
+                <li class="list-1"><a href="#">Pilne</a></li>
+                <li class="list-2"><a href="#">Umiarkowane</a></li>
+                <li class="list-3"><a href="#">Na potem</a></li>
             </ul>
-            <input id="add-list" type="text" placeholder=" +  Stwórz nową listę...">
-
         </div>
         <div class="tasks">
-            <div class="main">
-                <p>Dzisiaj</p>
+            <div class="main list-1">
+                <p>Pilne</p>
+                <ul>
+                    <li><a href="#">Zadanie1</a>
+                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                        <div>
+                            <ul>
+                                <li>Data wykonania:.....</li>
+                                <li>Komentarz:.....</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Zadanie2</a>
+                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                    </li>
+                    <li><a href="#">Zadanie3</a>
+                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-2">
+                <p>Umiarkowane</p>
+                <ul>
+                    <li><a href="#">Zadanie1</a>
+                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                        <div>
+                            <ul>
+                                <li>Data wykonania:.....</li>
+                                <li>Komentarz:.....</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Zadanie2</a>
+                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                    </li>
+                    <li><a href="#">Zadanie3</a>
+                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-3">
+                <p>Na potem</p>
                 <ul>
                     <li><a href="#">Zadanie1</a>
                         <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
@@ -62,14 +94,14 @@
             </div>
             <button class="add-new-task" type="submit">Dodaj nowe zadanie...</button>
 
-            <div class="add-task" style="display: none;">
+            <div class="add-task">
                 <p>Nowe zadanie</p>
 
                 <ul>
-                    <li><label for="name-task">Nazwa zadania: </label><input id="name-task" class="text-area" type="text"
-                            placeholder="Nazwa zadania..."></li>
-                    <li><label for="date-task">Data wykonania: </label><input id="date-task" class="text-area" type="date"
-                            placeholder="Data wykonania..."></li>
+                    <li><label for="name-task">Nazwa zadania: </label><input id="name-task" class="text-area"
+                            type="text" placeholder="Nazwa zadania..."></li>
+                    <li><label for="date-task">Data wykonania: </label><input id="date-task" class="text-area"
+                            type="date" placeholder="Data wykonania..."></li>
                     <li><label for="description">Opis: </label><textarea id="description" class="text-area" rows="4"
                             placeholder="Tutaj wpisz opis..."></textarea></li>
                 </ul>

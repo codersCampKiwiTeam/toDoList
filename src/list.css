@@ -113,20 +113,34 @@ body {
     flex-wrap: wrap;
     background-color: rgba(255, 255, 240, 0.7);
     border-radius: 12px;
+    transition: 0.2s linear;
+
 }
 
-.lists li:nth-of-type(2) {
-    background-color: rgba(197, 197, 72, 0.7);
+.tasks .list-1,
+.lists .list-1 {
+    background-color: rgba(221, 91, 31, 0.7);
 }
 
-.lists li:nth-of-type(3) {
-    background-color: rgba(207, 126, 59, 0.7);
+.tasks .list-2,
+.lists .list-2 {
+    background-color: rgba(231, 228, 44, 0.7);
+
+}
+
+.tasks .list-3,
+.lists .list-3 {
+    background-color: rgba(98, 207, 35, 0.7);
+}
+
+.tasks .list-2,
+.tasks .list-3 {
+    display: none;
 }
 
 .tasks li li {
     border-bottom: none;
     background-color: rgba(0, 0, 0, 0);
-
 }
 
 .lists li:last-of-type,
@@ -146,13 +160,20 @@ body {
     transition: 0.2s linear;
 }
 
-.lists a:hover,
+.lists a {
+    width: 100%;
+}
+
+.lists li:hover {
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
 .tasks a:hover {
     font-weight: bold;
     transform: scale(1.2)
 }
 
-.lists .icons,
 .tasks .icons {
     padding: 15px 0;
     width: 35%;
@@ -175,7 +196,6 @@ body {
     transform: scale(1.4)
 }
 
-#add-list,
 .add-new-task {
     margin: 40px 15px 0 15px;
     width: calc(100% - 30px);
@@ -207,6 +227,7 @@ body {
 
 /* Add task */
 .add-task {
+    display: none;
     position: absolute;
     bottom: 80px;
     left: 50%;
@@ -286,14 +307,13 @@ body {
         margin: 20px 10px;
     }
 
-    .lists a,
     .tasks a {
         font-size: 1.3em;
         padding: 10px 0;
         width: 60%;
     }
 
-    .lists.icons,
+
     .tasks.icons {
         width: 40%;
         padding: 10px 0;
@@ -306,7 +326,6 @@ body {
         text-align: right;
     }
 
-    #add-list,
     .add-new-task {
         font-size: 0.8em;
         padding: 5px;
@@ -362,7 +381,7 @@ body {
         width: 90vw;
     }
 
-    .lists a:hover,
+    .lists li:hover,
     .tasks a:hover,
     .fa-trash-alt:hover,
     .fa-check:hover {
