@@ -4,7 +4,29 @@
 // LOG OUT
 
 
-// DODAJ NOWĄ LISTĘ
+// POKAŻ LISTĘ
+// po kliknięciu listy "pilne"
+$('.btn-pilne').click(function () {
+    $('.pilne').show();
+    $('.umiarkowane').hide();
+    $('.naPotem').hide();
+});
+// po kliknięciu listy "umiarkowane"
+$('.btn-umiarkowane').click(function () {
+    $('.pilne').hide();
+    $('.umiarkowane').show();
+    $('.naPotem').hide();
+});
+// po kliknięciu listy "na potem"
+$('.btn-naPotem').click(function () {
+    $('.pilne').hide();
+    $('.umiarkowane').hide();
+    $('.naPotem').show();
+});
+
+
+//POBIERZ (GET) ZAWARTOŚĆ DIVA PILNE
+
 
 
 // DODAJ NOWE ZADANIE
