@@ -14,8 +14,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-mongoose.connect('mongodb://localhost/users', { 
-useNewUrlParser: true, useUnifiedTopology: true  
+mongoose.connect(config.get('db'), { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true  
 })
 .then(() => console.log('connected to MongoDB...'))
 .catch(err => console.error('Could not connect to MongoDB...'))
@@ -26,6 +27,7 @@ app.use(express.json());
 // Routes
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
+app.use('tasks', require('./routes/tasks'));
 
 const PORT = process.env.PORT || 5004;
 
