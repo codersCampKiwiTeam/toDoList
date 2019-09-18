@@ -49,8 +49,8 @@ async function showTasks() {
                 const el = document.createElement("div");
                 let newDiv = "";
                 newDiv += `<div id=${res[i]._id} spellcheck="false">
-                <b class="name-task">${res[i].nameTask}</b>
-                </br><span class="date-task">${res[i].dateTask}</span>
+                <b class="nameTask">${res[i].nameTask}</b>
+                </br><span class="dateTask">${res[i].dateTask}</span>
                 </br><span class="description">
                 </br>${res[i].description}</span>
                 </br><b class="status">${res[i].status}</b></div>`;
@@ -96,8 +96,8 @@ async function saveNewTask() {
     }*/
 
     const body = {
-        'name-task': nameTask,
-        'date-task': dateTask,
+        'nameTask': nameTask,
+        'dateTask': dateTask,
         'description': description,
         'status': status
     }
@@ -118,8 +118,8 @@ async function saveNewTask() {
             const el = document.createElement("div");
             let newDiv = "";
             newDiv += `<div id=${res._id} spellcheck="false">
-            <b class="name-task">${res.nameTask}</b>
-            </br><span class="date-task">${res.dateTask}</span>
+            <b class="nameTask">${res.nameTask}</b>
+            </br><span class="dateTask">${res.dateTask}</span>
             </br><span class="description">
             </br>${res.description}</span>
             </br><b class="status">${res.status}</b></div>`;

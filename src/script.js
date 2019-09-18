@@ -21,8 +21,8 @@ const logIn = () => {
 }
 const logData = async (loginName, loginPassword) => {
     let userData = {
-        "login-name": loginName,
-        "login-password": loginPassword
+        "loginName": loginName,
+        "loginPassword": loginPassword
     }
     // Autentykacja do poprawy
     await fetch('https://herokuapp.com/api/auth', { // Dodać adres!
@@ -54,9 +54,9 @@ const register = async () => {
 }
 const registerData = async (registerEmail, registerName, registerPassword) => {
     let registerUser = {
-        "register-email": registerEmail,
-        "register-name": registerName,
-        "register-password": registerPassword
+        "registerEmail": registerEmail,
+        "registerName": registerName,
+        "registerPassword": registerPassword
     }
     // Autentykacja do poprawy
     await fetch('https://herokuapp.com/api/auth', { // Dodać adres!
