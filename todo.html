@@ -14,7 +14,7 @@
     "></script>
 </head>
 
-<body>
+<body onload="showTasks()">
     <nav class="navigation main">
         <div class="search-div"><input id="search" type="text" placeholder="Wpisz szukane zadanie...">
             <i class="fas fa-search"></i>
@@ -32,7 +32,7 @@
             </ul>
         </div>
         <div class="tasks">
-            <div class="main list-1 pilne">
+            <div class="main list-1" id="pilne">
                 <p>Pilne</p>
                 <ul>
                     <li><a href="#">Zadanie1</a>
@@ -52,7 +52,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="main list-2 umiarkowane">
+            <div class="main list-2" id="umiarkowane">
                 <p>Umiarkowane</p>
                 <ul>
                     <li><a href="#">Zadanie1</a>
@@ -72,7 +72,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="main list-3 naPotem">
+            <div class="main list-3" id="naPotem">
                 <p>Na potem</p>
                 <ul>
                     <li><a href="#">Zadanie1</a>
@@ -103,7 +103,7 @@
                             <select id="status-choice" name="status">
                                 <option selected value="pilne">Pilne</option>
                                 <option value="umiarkowane">Umiarkowane</option>
-                                <option value="potem">Na potem</option>
+                                <option value="naPotem">Na potem</option>
                             </select>
                         </form>
                     </li>

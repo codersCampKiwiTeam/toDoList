@@ -4,29 +4,64 @@
 // LOG OUT
 
 
+// USUŃ ZADANIE
+
+
 // POKAŻ LISTĘ
 // po kliknięciu listy "pilne"
 $('.btn-pilne').click(function () {
-    $('.pilne').show();
-    $('.umiarkowane').hide();
-    $('.naPotem').hide();
+    $('#pilne').show();
+    $('#umiarkowane').hide();
+    $('#naPotem').hide();
 });
 // po kliknięciu listy "umiarkowane"
 $('.btn-umiarkowane').click(function () {
-    $('.pilne').hide();
-    $('.umiarkowane').show();
-    $('.naPotem').hide();
+    $('#pilne').hide();
+    $('#umiarkowane').show();
+    $('#naPotem').hide();
 });
 // po kliknięciu listy "na potem"
 $('.btn-naPotem').click(function () {
-    $('.pilne').hide();
-    $('.umiarkowane').hide();
-    $('.naPotem').show();
+    $('#pilne').hide();
+    $('#umiarkowane').hide();
+    $('#naPotem').show();
 });
 
 
-//POBIERZ (GET) ZAWARTOŚĆ DIVA PILNE
+// POKAŻ ZADANIA
+async function showTasks() {
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const userParams = urlParams.get('userParams');
+
+    await fetch('https://to-do-a.herokuapp.com/', {         // DODAĆ ADRES!
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": userParams
+        }
+    })
+    .then(res => res.json())
+    .then(res => {
+
+        if(res){
+            for (i=0;i<res.length;i++){
+                const el = document.createElement("div");
+                let newDiv = "";
+                newDiv += `<div id=${res[i]._id} spellcheck="false">
+                <b class="name-task">${res[i].nameTask}</b>
+                </br><span class="date-task">${res[i].dateTask}</span>
+                </br><span class="description">
+                </br>${res[i].description}</span>
+                </br><b class="status">${res[i].status}</b></div>`;
+                el.innerHTML = newDiv;
+                document.getElementById(res[i].status).appendChild(el);
+            }
+        }
+
+    })
+    .catch(err => alert(err));
+}
 
 
 // DODAJ NOWE ZADANIE
@@ -63,28 +98,31 @@ async function saveNewTask() {
     const body = {
         'name-task': nameTask,
         'date-task': dateTask,
-        'description': description
+        'description': description,
+        'status': status
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const myParam = urlParams.get('myParam');
+    const userParams = urlParams.get('userParams');
 
     await fetch('https://to-do-a.herokuapp.com/', { // DODAĆ ADRES!
             method: "POST",
             body: JSON.stringify(body),
             headers: {
                 "Content-Type": "application/json",
-                "x-auth-token": myParam
+                "x-auth-token": userParams
             }
         })
         .then(res => res.json())
         .then(res => {
             const el = document.createElement("div");
             let newDiv = "";
-            newDiv += `<div id=${res._id}><b class="name-task">${res.nameTask}</b>
+            newDiv += `<div id=${res._id} spellcheck="false">
+            <b class="name-task">${res.nameTask}</b>
             </br><span class="date-task">${res.dateTask}</span>
             </br><span class="description">
-            </br>${res.description}</span></div>`;
+            </br>${res.description}</span>
+            </br><b class="status">${res.status}</b></div>`;
             el.innerHTML = newDiv;
             document.getElementById(res.status).appendChild(el);
         })
