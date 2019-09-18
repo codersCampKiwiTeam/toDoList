@@ -114,7 +114,6 @@ body {
     background-color: rgba(255, 255, 240, 0.7);
     border-radius: 12px;
     transition: 0.2s linear;
-
 }
 
 .tasks .list-1,
@@ -197,13 +196,10 @@ body {
 }
 
 .add-new-task {
-    margin: 40px 15px 0 15px;
+    margin: 15px 15px 0 15px;
     width: calc(100% - 30px);
     font-size: 1em;
     padding: 10px;
-}
-
-.add-new-task {
     color: ivory;
     background-color: rgba(0, 128, 0, 0.63);
     border: none;
@@ -246,20 +242,26 @@ body {
 }
 
 .add-task li {
-    font-size: 1.2em;
+    font-size: 1em;
     border: none;
     border-radius: 0;
+    margin: 10px;
 }
 
+select,
 .add-task input,
 .add-task textarea {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     width: 100%;
     font-size: 0.8em;
     padding: 5px;
     text-align: center;
     vertical-align: top;
     border-radius: 5px;
+}
+
+select {
+    margin-left: 10px;
 }
 
 .add-task-btn {
@@ -276,7 +278,7 @@ body {
 
 /* Media queries */
 
-@media (max-width: 840px) and (min-width: 600px) {
+@media (max-width: 840px) {
 
     .fa-search {
         font-size: 1em;
@@ -313,7 +315,6 @@ body {
         width: 60%;
     }
 
-
     .tasks.icons {
         width: 40%;
         padding: 10px 0;
@@ -334,15 +335,17 @@ body {
     /* Add task */
     .add-task {
         font-size: 1.2em;
+        bottom: 60px;
     }
 
     .add-task li {
         font-size: 0.8em;
+        margin: 8px;
     }
 
+    select,
     .add-task input,
     .add-task textarea {
-        margin-bottom: 8px;
         font-size: 1em;
     }
 }
