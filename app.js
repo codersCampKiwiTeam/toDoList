@@ -24,8 +24,8 @@ mongoose.set('useCreateIndex', true);
 app.use(express.json());
 
 // Routes
-app.use('/', require('./routes/index.js'));
-app.use('/users', require('./routes/users.js'));
+app.use('/auth', require('./routes/AuthController.js'));
+app.use('/users', require('./routes/UsersController.js'));
 
 const PORT = process.env.PORT || 5004;
 
