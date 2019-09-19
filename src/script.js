@@ -25,7 +25,7 @@ const logData = async (loginName, loginPassword) => {
         "loginPassword": loginPassword
     }
     // Autentykacja do poprawy
-    await fetch('https://kiwitodoapp.herokuapp.com/auth', { // Dodać adres!
+    await fetch('https://kiwitodoapp.herokuapp.com/users/login', { // Dodać adres!
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
@@ -59,7 +59,7 @@ const registerData = async (registerEmail, registerName, registerPassword) => {
         "registerPassword": registerPassword
     }
     // Autentykacja do poprawy
-    await fetch('https://kiwitodoapp.herokuapp.com/auth', { // Dodać adres!
+    await fetch('https://kiwitodoapp.herokuapp.com/users/register', { // Dodać adres!
         method: "POST",
         body: JSON.stringify(registerUser),
         headers: {
