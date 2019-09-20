@@ -85,6 +85,21 @@ $(".main").click(function (e) {
 const addTask = document.getElementsByClassName('.add-task');
 let editItem = null;
 
+function clearNewTaskArea() {
+    const allText = document.getElementsByClassName("text-area");
+    for (let i = 0; i <= allText.length; i++) {
+        if (allText[i] != null) {
+            allText[i].innerText = null;
+        }
+    }
+}
+
+function closeNewTaskArea() {
+    addTask.style.display = 'none';
+    clearNewTaskArea();
+    document.getElementById("add-task-btn").setAttribute("onclick", "saveNewTask()");
+}
+
 async function saveNewTask() {
     const nameTask = document.getElementById('name-task').value;
     const dateTask = document.getElementById('date-task').value;
@@ -132,21 +147,6 @@ async function saveNewTask() {
         })
         .catch(err => alert(err));
 
-    closeNewTaskArea();
-}
-
-function clearNewTaskArea() {
-    const allText = document.getElementsByClassName("text-area");
-    for (let i = 0; i <= allText.length; i++) {
-        if (allText[i] != null) {
-            allText[i].innerText = null;
-        }
-    }
-}
-
-function closeNewTaskArea() {
-    clearNewTaskArea();
-    $(".add-task-btn").click(function (e) {
-        $('.add-task').hide();
-    });    
+        clearNewTaskArea();
+        closeNewTaskArea();
 }
