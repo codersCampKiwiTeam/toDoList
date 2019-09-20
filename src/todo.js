@@ -57,7 +57,8 @@ async function showTasks() {
                 </br>${res[i].description}</span>
                 </br><b class="status">${res[i].status}</b></div>`;
                 el.innerHTML = newDiv;
-                document.getElementById(res[i].status).appendChild(el);
+                console.log(el);
+                // document.getElementById(res[i].status).appendChild(el);
             }
         }
 
