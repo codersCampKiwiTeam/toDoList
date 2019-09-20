@@ -32,13 +32,13 @@ $('.btn-naPotem').click(function () {
 async function showTasks() {
 
     const urlParams = new URLSearchParams(window.location.search);
-    const userParams = urlParams.get('userParams');
+    const myParam = urlParams.get('myParam');
 
     await fetch('https://kiwitodoapp.herokuapp.com/tasks', {         // DODAĆ ADRES!
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "x-auth-token": userParams
+            "x-auth-token": myParam
         }
     })
     .then(res => res.json())
@@ -103,32 +103,32 @@ async function saveNewTask() {
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const userParams = urlParams.get('userParams');
-    console.log(userParams);
+    const myParam = urlParams.get('myParam');
+    console.log(myParam);
 
     await fetch('https://kiwitodoapp.herokuapp.com/tasks', { // DODAĆ ADRES!
             method: "POST",
             body: JSON.stringify(body),
             headers: {
                 "Content-Type": "application/json",
-                "x-auth-token": userParams
+                "x-auth-token": myParam
             }
         })
-        //.then(res => res.json())
-        .then(res => res.text())
-        .then(text => console.log(text)) 
-        // .then(res => {
-        //     const el = document.createElement("div");
-        //     let newDiv = "";
-        //     newDiv += `<div id=${res._id} spellcheck="false">
-        //     <b class="nameTask">${res.nameTask}</b>
-        //     </br><span class="dateTask">${res.dateTask}</span>
-        //     </br><span class="description">
-        //     </br>${res.description}</span>
-        //     </br><b class="status">${res.status}</b></div>`;
-        //     el.innerHTML = newDiv;
-        //     document.getElementById(res.status).appendChild(el);
-        // })
+        .then(res => res.json())
+        // .then(res => res.text())
+        // .then(text => console.log(text)) 
+        .then(res => {
+            const el = document.createElement("div");
+            let newDiv = "";
+            newDiv += `<div id=${res._id} spellcheck="false">
+            <b class="nameTask">${res.nameTask}</b>
+            </br><span class="dateTask">${res.dateTask}</span>
+            </br><span class="description">
+            </br>${res.description}</span>
+            </br><b class="status">${res.status}</b></div>`;
+            el.innerHTML = newDiv;
+            document.getElementById(res.status).appendChild(el);
+        })
         .catch(err => alert(err));
 
     closeNewTaskArea();
