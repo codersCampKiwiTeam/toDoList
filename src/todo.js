@@ -34,7 +34,7 @@ async function showTasks() {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('myParam');
 
-    await fetch('https://kiwitodoapp.herokuapp.com/tasks', {         // DODAĆ ADRES!
+    await fetch('https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks', {         // DODAĆ ADRES!
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -105,7 +105,7 @@ async function saveNewTask() {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('myParam');
 
-    await fetch('https://kiwitodoapp.herokuapp.com/tasks', { // DODAĆ ADRES!
+    await fetch('https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks', { // DODAĆ ADRES!
             method: "POST",
             body: JSON.stringify(body),
             headers: {
