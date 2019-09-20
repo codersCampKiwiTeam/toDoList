@@ -38,6 +38,7 @@ const logData = async (loginName, loginPassword) => {
             return alert("Invalid email or password")
         } 
         else{
+            console.log(res);
             var queryString = `?myParam=${res}`;
             window.location.href = "./todo.html" + queryString;
         }
