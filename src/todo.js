@@ -3,11 +3,11 @@ $('#search-btn').on("click", function () {
 	var szukana_fraza = $('#search').val();
 	
   if(szukana_fraza.length === 0) {
-		$('.tasks').css("color", "black");
+		$('.tasks .taskOk').css("color", "black");
   	return;
   }
     
-	$('.tasks').find(".tasks").each( function() {
+	$('.tasks').find(".taskOk").each( function() {
 		if($(this).text().toUpperCase().indexOf(szukana_fraza.toUpperCase()) != -1)
 		{
 			$(this).css("color", "red");
@@ -67,7 +67,7 @@ async function showTasks() {
             for (i=0;i<res.length;i++){
                 const el = document.createElement("div");
                 let newDiv = "";
-                newDiv += `<div id=${res[i]._id} spellcheck="false">
+                newDiv += `<div class=taskOk id=${res[i]._id} spellcheck="false">
                 <b class="nameTask">${res[i].nameTask}</b>
                 </br><span class="dateTask">${res[i].dateTask}</span>
                 </br><span class="description">
