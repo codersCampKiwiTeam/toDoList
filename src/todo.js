@@ -145,6 +145,8 @@ function clearNewTaskArea() {
 }
 
 function closeNewTaskArea() {
-    addTask.style.display = 'none';
     clearNewTaskArea();
+    $(".add-task-btn").click(function (e) {
+        $('.add-task').hide();
+    });    
 }
