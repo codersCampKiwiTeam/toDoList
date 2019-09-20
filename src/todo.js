@@ -1,5 +1,9 @@
 // SEARCH
 
+const urlParams = new URLSearchParams(window.location.search);
+const token = urlParams.get('myParam');
+var decoded = jwt.decode(token);
+console.log(decoded);
 
 // LOG OUT
 
