@@ -41,25 +41,27 @@ async function showTasks() {
             "x-auth-token": myParam
         }
     })
-    .then(res => res.json())
-    .then(res => {
+    .then(res => res.text())
+    .then(console.log(res))
+    // .then(res => res.json())
+    // .then(res => {
 
-        if(res){
-            for (i=0;i<res.length;i++){
-                const el = document.createElement("div");
-                let newDiv = "";
-                newDiv += `<div id=${res[i]._id} spellcheck="false">
-                <b class="nameTask">${res[i].nameTask}</b>
-                </br><span class="dateTask">${res[i].dateTask}</span>
-                </br><span class="description">
-                </br>${res[i].description}</span>
-                </br><b class="status">${res[i].status}</b></div>`;
-                el.innerHTML = newDiv;
-                document.getElementById(res[i].status).appendChild(el);
-            }
-        }
+    //     if(res){
+    //         for (i=0;i<res.length;i++){
+    //             const el = document.createElement("div");
+    //             let newDiv = "";
+    //             newDiv += `<div id=${res[i]._id} spellcheck="false">
+    //             <b class="nameTask">${res[i].nameTask}</b>
+    //             </br><span class="dateTask">${res[i].dateTask}</span>
+    //             </br><span class="description">
+    //             </br>${res[i].description}</span>
+    //             </br><b class="status">${res[i].status}</b></div>`;
+    //             el.innerHTML = newDiv;
+    //             document.getElementById(res[i].status).appendChild(el);
+    //         }
+    //     }
 
-    })
+    // })
     .catch(err => alert(err));
 }
 
