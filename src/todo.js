@@ -150,5 +150,7 @@ async function saveNewTask() {
         .catch(err => alert(err));
 
         clearNewTaskArea();
-        closeNewTaskArea();
+        let refresh = window.location.href;
+        window.location.href = "";
+        window.location.href = refresh;
 }
