@@ -41,27 +41,27 @@ async function showTasks() {
             "x-auth-token": myParam
         }
     })
-    .then(res => res.text())
-    .then(text => console.log(text)) 
-    // .then(res => res.json())
-    // .then(res => {
+    // .then(res => res.text())
+    // .then(text => console.log(text)) 
+    .then(res => res.json())
+    .then(res => {
 
-    //     if(res){
-    //         for (i=0;i<res.length;i++){
-    //             const el = document.createElement("div");
-    //             let newDiv = "";
-    //             newDiv += `<div id=${res[i]._id} spellcheck="false">
-    //             <b class="nameTask">${res[i].nameTask}</b>
-    //             </br><span class="dateTask">${res[i].dateTask}</span>
-    //             </br><span class="description">
-    //             </br>${res[i].description}</span>
-    //             </br><b class="status">${res[i].status}</b></div>`;
-    //             el.innerHTML = newDiv;
-    //             document.getElementById(res[i].status).appendChild(el);
-    //         }
-    //     }
+        if(res){
+            for (i=0;i<res.length;i++){
+                const el = document.createElement("div");
+                let newDiv = "";
+                newDiv += `<div id=${res[i]._id} spellcheck="false">
+                <b class="nameTask">${res[i].nameTask}</b>
+                </br><span class="dateTask">${res[i].dateTask}</span>
+                </br><span class="description">
+                </br>${res[i].description}</span>
+                </br><b class="status">${res[i].status}</b></div>`;
+                el.innerHTML = newDiv;
+                document.getElementById(res[i].status).appendChild(el);
+            }
+        }
 
-    // })
+    })
     .catch(err => alert(err));
 }
 
@@ -115,21 +115,21 @@ async function saveNewTask() {
                 "x-auth-token": myParam
             }
         })
-        .then(res => res.text())
-        .then(text => console.log(text)) 
-        // .then(res => res.json())
-        // .then(res => {
-        //     const el = document.createElement("div");
-        //     let newDiv = "";
-        //     newDiv += `<div id=${res._id} spellcheck="false">
-        //     <b class="nameTask">${res.nameTask}</b>
-        //     </br><span class="dateTask">${res.dateTask}</span>
-        //     </br><span class="description">
-        //     </br>${res.description}</span>
-        //     </br><b class="status">${res.status}</b></div>`;
-        //     el.innerHTML = newDiv;
-        //     document.getElementById(res.status).appendChild(el);
-        // })
+        // .then(res => res.text())
+        // .then(text => console.log(text)) 
+        .then(res => res.json())
+        .then(res => {
+            const el = document.createElement("div");
+            let newDiv = "";
+            newDiv += `<div id=${res._id} spellcheck="false">
+            <b class="nameTask">${res.nameTask}</b>
+            </br><span class="dateTask">${res.dateTask}</span>
+            </br><span class="description">
+            </br>${res.description}</span>
+            </br><b class="status">${res.status}</b></div>`;
+            el.innerHTML = newDiv;
+            document.getElementById(res.status).appendChild(el);
+        })
         .catch(err => alert(err));
 
     closeNewTaskArea();
