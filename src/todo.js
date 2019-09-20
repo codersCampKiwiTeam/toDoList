@@ -104,7 +104,8 @@ async function saveNewTask() {
 
     const urlParams = new URLSearchParams(window.location.search);
     const userParams = urlParams.get('userParams');
-    
+    console.log(userParams);
+
     await fetch('https://kiwitodoapp.herokuapp.com/tasks', { // DODAĆ ADRES!
             method: "POST",
             body: JSON.stringify(body),
