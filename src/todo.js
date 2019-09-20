@@ -89,7 +89,7 @@ function clearNewTaskArea() {
     const allText = document.getElementsByClassName("text-area");
     for (let i = 0; i <= allText.length; i++) {
         if (allText[i] != null) {
-            allText[i].innerText = null;
+            allText[i].value = null;
         }
     }
 }
