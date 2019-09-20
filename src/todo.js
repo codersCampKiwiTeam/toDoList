@@ -42,7 +42,7 @@ async function showTasks() {
         }
     })
     .then(res => res.text())
-    .then(console.log(res))
+    .then(text => console.log(text)) 
     // .then(res => res.json())
     // .then(res => {
 
