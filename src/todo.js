@@ -86,9 +86,9 @@ const addTask = document.getElementsByClassName('.add-task');
 let editItem = null;
 
 async function saveNewTask() {
-    const nameTask = document.getElementById('name-task').innerText;
-    const dateTask = document.getElementById('date-task').innerText;
-    const description = document.getElementById('description').innerText;
+    const nameTask = document.getElementById('name-task').value;
+    const dateTask = document.getElementById('date-task').value;
+    const description = document.getElementById('description').value;
     const e = document.getElementById('status-choice');
     const status = e.options[e.selectedIndex].value;
 
