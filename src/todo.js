@@ -8,23 +8,23 @@
 
 
 // POKAŻ LISTĘ
-// po kliknięciu listy "pilne"
-$('.btn-pilne').click(function () {
-    $('#pilne').show();
-    $('#umiarkowane').hide();
-    $('#naPotem').hide();
+// po kliknięciu listy "urgent"
+$('.btn-urgent').click(function () {
+    $('#urgent').show();
+    $('#moderate').hide();
+    $('#forLater').hide();
 });
-// po kliknięciu listy "umiarkowane"
-$('.btn-umiarkowane').click(function () {
-    $('#pilne').hide();
-    $('#umiarkowane').show();
-    $('#naPotem').hide();
+// po kliknięciu listy "moderate"
+$('.btn-moderate').click(function () {
+    $('#urgent').hide();
+    $('#moderate').show();
+    $('#forLater').hide();
 });
 // po kliknięciu listy "na potem"
-$('.btn-naPotem').click(function () {
-    $('#pilne').hide();
-    $('#umiarkowane').hide();
-    $('#naPotem').show();
+$('.btn-forLater').click(function () {
+    $('#urgent').hide();
+    $('#moderate').hide();
+    $('#forLater').show();
 });
 
 
