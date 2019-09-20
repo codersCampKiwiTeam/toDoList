@@ -104,7 +104,7 @@ async function saveNewTask() {
 
     const urlParams = new URLSearchParams(window.location.search);
     const userParams = urlParams.get('userParams');
-
+    
     await fetch('https://kiwitodoapp.herokuapp.com/tasks', { // DODAĆ ADRES!
             method: "POST",
             body: JSON.stringify(body),
@@ -113,19 +113,21 @@ async function saveNewTask() {
                 "x-auth-token": userParams
             }
         })
-        .then(res => res.json())
-        .then(res => {
-            const el = document.createElement("div");
-            let newDiv = "";
-            newDiv += `<div id=${res._id} spellcheck="false">
-            <b class="nameTask">${res.nameTask}</b>
-            </br><span class="dateTask">${res.dateTask}</span>
-            </br><span class="description">
-            </br>${res.description}</span>
-            </br><b class="status">${res.status}</b></div>`;
-            el.innerHTML = newDiv;
-            document.getElementById(res.status).appendChild(el);
-        })
+        //.then(res => res.json())
+        .then(res => res.text())
+        .then(text => console.log(text)) 
+        // .then(res => {
+        //     const el = document.createElement("div");
+        //     let newDiv = "";
+        //     newDiv += `<div id=${res._id} spellcheck="false">
+        //     <b class="nameTask">${res.nameTask}</b>
+        //     </br><span class="dateTask">${res.dateTask}</span>
+        //     </br><span class="description">
+        //     </br>${res.description}</span>
+        //     </br><b class="status">${res.status}</b></div>`;
+        //     el.innerHTML = newDiv;
+        //     document.getElementById(res.status).appendChild(el);
+        // })
         .catch(err => alert(err));
 
     closeNewTaskArea();
