@@ -1,4 +1,21 @@
 // SEARCH
+$('#search-btn').on("click", function () {
+	var szukana_fraza = $('#search').val();
+	
+  if(szukana_fraza.length === 0) {
+		$('.tasks').css("color", "black");
+  	return;
+  }
+    
+	$('.tasks').find(".tasks").each( function() {
+		if($(this).text().toUpperCase().indexOf(szukana_fraza.toUpperCase()) != -1)
+		{
+			$(this).css("color", "red");
+		} else {
+			$(this).css("color", "black");
+  	}
+	});
+});
 
 
 // LOG OUT
