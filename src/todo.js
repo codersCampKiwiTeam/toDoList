@@ -112,7 +112,7 @@ async function showTasks() {
 }
 
 $('.trash').click(function () {
-    $('${res[i]._id}').hide();
+    $('.search-div').hide();
 });
 
 
