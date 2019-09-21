@@ -29,12 +29,11 @@ $('.logout').click(function () {
 let taskID = document.getElementsByClassName('listItem');
 
 taskID.addEventListener('click', function(e){
-    async function deleteTask() {
 
         const urlParams = new URLSearchParams(window.location.search);
         const myParam = urlParams.get('myParam');
     
-        await fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/:${e.target.id}`, {         // DODAĆ ADRES!
+        fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/:${e.target.id}`, {         // DODAĆ ADRES!
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -43,7 +42,10 @@ taskID.addEventListener('click', function(e){
         })
         .then(res => res.json())
         .catch(err => alert(err));
-    }
+
+        let refresh = window.location.href;
+        window.location.href = "";
+        window.location.href = refresh;
 });
 
 
