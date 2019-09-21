@@ -28,7 +28,8 @@ $('.logout').click(function () {
 // USUŃ ZADANIE
 let taskID = document.getElementsByClassName('listItem');
 
-taskID.addEventListener('click', function(e){
+for (let i=0; i < taskID.length; i++){
+    taskID[i].addEventListener('click', function(e){
 
         const urlParams = new URLSearchParams(window.location.search);
         const myParam = urlParams.get('myParam');
@@ -47,9 +48,7 @@ taskID.addEventListener('click', function(e){
         window.location.href = "";
         window.location.href = refresh;
 });
-
-
-
+}
 
 // POKAŻ LISTĘ
 // po kliknięciu listy "urgent"
