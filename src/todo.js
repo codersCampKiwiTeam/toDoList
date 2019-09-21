@@ -31,6 +31,8 @@ let taskID = document.getElementsByClassName('listItem');
 for (let i=0; i < taskID.length; i++){
     taskID[i].addEventListener('click', function(e){
 
+        console.log(e.target.id);
+
         const urlParams = new URLSearchParams(window.location.search);
         const myParam = urlParams.get('myParam');
     
