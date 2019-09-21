@@ -33,7 +33,7 @@ taskID.addEventListener('click', function(e){
         const urlParams = new URLSearchParams(window.location.search);
         const myParam = urlParams.get('myParam');
     
-        await fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/: ${e.target.id}`, {         // DODAĆ ADRES!
+        fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/: ${e.target.id}`, {         // DODAĆ ADRES!
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
