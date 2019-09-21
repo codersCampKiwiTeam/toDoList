@@ -26,27 +26,7 @@ $('.logout').click(function () {
 
 
 // USUŃ ZADANIE
-let taskID = document.getElementsByClassName('listItem');
 
-taskID.addEventListener('click', function(){
-    deleteTask();
-});
-
-async function deleteTask() {
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const myParam = urlParams.get('myParam');
-
-    await fetch('https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/5d85ec375937c10017b9e833', {         // DODAĆ ADRES!
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": myParam
-        }
-    })
-    .then(res => res.json())
-    .catch(err => alert(err));
-}
 
 
 // POKAŻ LISTĘ
