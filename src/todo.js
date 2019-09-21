@@ -21,6 +21,7 @@ $('#search-btn').on("click", function () {
 // LOG OUT
 
 $('.logout').click(function () {
+    alert("Zostałeś wylogowany. Aby wrócić do swojej listy zaloguj się ponownie.");
     window.location.href = "./index.html";
 });
 
