@@ -26,7 +26,8 @@ $('.logout').click(function () {
 
 
 // USUŃ ZADANIE
-let taskID = document.getElementsByClassName('taskItem');
+let taskID = document.getElementsByClassName('listItem');
+
 taskID.addEventListener('click', function(){
     deleteTask();
 });
