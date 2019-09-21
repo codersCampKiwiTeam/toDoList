@@ -94,28 +94,12 @@ async function showTasks() {
         if(res){
             for (i=0;i<res.length;i++){
                 const el = document.createElement("li");
-                async function remove() {
-            
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const myParam = urlParams.get('myParam');
-                
-                    await fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/:${e.target.id}`, {
-                        method: "DELETE",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "x-auth-token": myParam
-                        }
-                    })
-                    .then(res => res.json())
-                    .catch(err => alert(err));
-                }
-
                 el.classList.add("listItem");
                 el.setAttribute("id",`${res[i]._id}`);
                 el.setAttribute("spellcheck", "false");
                 let newDiv = "";
                 newDiv += `<a href="#" class="nameTask" id="${res[i]._id}">${res[i].nameTask}</a>
-                <button id="${res[i]._id}" type="submit" onclick="remove()"><i class="fas fa-trash-alt"></i></button>
+                <button id="${res[i]._id}" class="trash" type="submit"><i class="fas fa-trash-alt"></i></button>
                 <div id="${res[i]._id}"><ul id="${res[i]._id}"><li id="${res[i]._id}" class="dateTask">Data wykonania: ${res[i].dateTask}</li>
                 <li id="${res[i]._id}" class="description">Komentarz: ${res[i].description}</li></ul></div>`;
                 el.innerHTML = newDiv;
@@ -126,6 +110,10 @@ async function showTasks() {
     })
     .catch(err => alert(err));
 }
+
+$('.trash').click(function () {
+    $('${res[i]._id}').hide();
+});
 
 
 // DODAJ NOWE ZADANIE
