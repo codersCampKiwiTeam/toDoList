@@ -27,21 +27,21 @@ $('#search-btn').on("click", function () {
 // POKAŻ LISTĘ
 // po kliknięciu listy "urgent"
 $('.btn-urgent').click(function () {
-    $('#urgent').show();
-    $('#moderate').hide();
-    $('#forLater').hide();
+    $('#divUrgent').show();
+    $('#divModerate').hide();
+    $('#divForLater').hide();
 });
 // po kliknięciu listy "moderate"
 $('.btn-moderate').click(function () {
-    $('#urgent').hide();
-    $('#moderate').show();
-    $('#forLater').hide();
+    $('#divUrgent').hide();
+    $('#divModerate').show();
+    $('#divForLater').hide();
 });
 // po kliknięciu listy "na potem"
 $('.btn-forLater').click(function () {
-    $('#urgent').hide();
-    $('#moderate').hide();
-    $('#forLater').show();
+    $('#divUrgent').hide();
+    $('#divModerate').hide();
+    $('#divForLater').show();
 });
 
 
