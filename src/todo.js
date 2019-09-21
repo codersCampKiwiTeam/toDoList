@@ -74,9 +74,9 @@ async function showTasks() {
                 el.setAttribute("id",`${res[i]._id}`);
                 el.setAttribute("spellcheck", "false");
                 let newDiv = "";
-                newDiv += `<a href="#" class="nameTask">${res[i].nameTask}</a>
-                <div><ul><li class="dateTask">Data wykonania: ${res[i].dateTask}</li>
-                <li class="description">Komentarz: ${res[i].description}</li></ul></div>`;
+                newDiv += `<a href="#" class="nameTask" id="${res[i]._id}">${res[i].nameTask}</a>
+                <div id="${res[i]._id}"><ul id="${res[i]._id}"><li id="${res[i]._id}" class="dateTask">Data wykonania: ${res[i].dateTask}</li>
+                <li id="${res[i]._id}" class="description">Komentarz: ${res[i].description}</li></ul></div>`;
                 el.innerHTML = newDiv;
                 document.getElementById(`${res[i].status}`).appendChild(el);
             }
