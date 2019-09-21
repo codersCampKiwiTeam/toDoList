@@ -65,14 +65,14 @@ async function showTasks() {
 
         if(res){
             for (i=0;i<res.length;i++){
-                const el = document.createElement("div");
+                const el = document.createElement("li");
+                el.classList.add("listItem");
+                el.setAttribute("id",`${res[i]._id}`);
+                el.setAttribute("spellcheck", "false");
                 let newDiv = "";
-                newDiv += `<div class=taskOk id=${res[i]._id} spellcheck="false">
-                <b class="nameTask">${res[i].nameTask}</b>
-                </br><span class="dateTask">${res[i].dateTask}</span>
-                </br><span class="description">
-                </br>${res[i].description}</span>
-                </br><b class="status">${res[i].status}</b></div>`;
+                newDiv += `<a href="#" class="nameTask">${res[i].nameTask}</a>
+                <div><ul><li class="dateTask">Data wykonania: ${res[i].dateTask}</li>
+                <li class="description">Komentarz: ${res[i].description}</li></ul></div>`;
                 el.innerHTML = newDiv;
                 document.getElementById(`${res[i].status}`).appendChild(el);
             }
