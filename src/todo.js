@@ -20,6 +20,10 @@ $('#search-btn').on("click", function () {
 
 // LOG OUT
 
+$('.logout').click(function () {
+    window.location.href = "./index.html";
+});
+
 
 // USUŃ ZADANIE
 
