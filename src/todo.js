@@ -21,7 +21,7 @@ $('#search-btn').on("click", function () {
 // LOG OUT
 
 $('.logout').click(function () {
-    window.location.href = "./?#";
+    window.location.href = "./";
 });
 
 
