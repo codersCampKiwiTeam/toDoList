@@ -16,10 +16,9 @@
 
 <body onload="showTasks()">
     <nav class="navigation main">
-        <form class="search-div">
-            <input id="search" type="text" placeholder="Wpisz szukane zadanie...">
-            <button id="search-btn" type="submit" onclick="search()"><i class="fas fa-search"></i></button>
-        </form>
+        <div class="search-div"><input id="search" type="text" placeholder="Wpisz szukane zadanie...">
+            <i class="fas fa-search"></i>
+        </div>
         <p class="app-name">To do with KIWI</p>
         <button class="logout">Wyloguj się</button>
     </nav>
@@ -27,71 +26,23 @@
         <div class="lists main">
             <p>Twoje listy</p>
             <ul>
-                <li class="list-1 btn-urgent"><a href="#">Pilne</a></li>
-                <li class="list-2 btn-moderate"><a href="#">Umiarkowane</a></li>
-                <li class="list-3 btn-forLater"><a href="#">Na potem</a></li>
+                <li class="list-1 btn-pilne"><a href="#">Pilne</a></li>
+                <li class="list-2 btn-umiarkowane"><a href="#">Umiarkowane</a></li>
+                <li class="list-3 btn-naPotem"><a href="#">Na potem</a></li>
             </ul>
         </div>
         <div class="tasks">
-            <div class="main list-1" id="divUrgent">
+            <div class="main list-1" id="urgent">
                 <p>Pilne</p>
-                <ul class="taskList" id="urgent">
-                    <li class="listItem"><a href="#">Zadanie1</a>
-                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                        <div>
-                            <ul>
-                                <li>Data wykonania:.....</li>
-                                <li>Komentarz:.....</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#">Zadanie2</a>
-                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                    </li>
-                    <li><a href="#">Zadanie3</a>
-                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                    </li>
-                </ul>
+				<ul></ul>
             </div>
-            <div class="main list-2" id="divModerate">
+            <div class="main list-2" id="moderate">
                 <p>Umiarkowane</p>
-                <ul class="taskList" id="moderate">
-                    <li><a href="#">Zadanie1</a>
-                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                        <div>
-                            <ul>
-                                <li>Data wykonania:.....</li>
-                                <li>Komentarz:.....</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#">Zadanie2</a>
-                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                    </li>
-                    <li><a href="#">Zadanie3</a>
-                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                    </li>
-                </ul>
+				<ul></ul>
             </div>
-            <div class="main list-3" id="divForLater">
+            <div class="main list-3" id="forLater">
                 <p>Na potem</p>
-                <ul class="taskList" id="forLater">
-                    <li><a href="#">Zadanie1</a>
-                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                        <div>
-                            <ul>
-                                <li>Data wykonania:.....</li>
-                                <li>Komentarz:.....</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#">Zadanie2</a>
-                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                    </li>
-                    <li><a href="#">Zadanie3</a>
-                        <div class="icons"><i class="fas fa-trash-alt"></i><i class="fas fa-check"></i></div>
-                    </li>
-                </ul>
+                <ul></ul>
             </div>
             <button class="add-new-task" type="submit">Dodaj nowe zadanie...</button>
 
