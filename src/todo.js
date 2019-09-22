@@ -99,7 +99,7 @@ async function showTasks() {
                 el.setAttribute("spellcheck", "false");
                 let newDiv = "";
                 newDiv += `<a href="#" class="nameTask" id="${res[i]._id}">${res[i].nameTask}</a>
-                <button id="${res[i]._id}" class="trash" type="submit"><i class="fas fa-trash-alt"></i></button>
+                <button id="${res[i]._id}" class="trash" type="submit" onclick="remove()"><i class="fas fa-trash-alt"></i></button>
                 <div id="${res[i]._id}"><ul id="${res[i]._id}"><li id="${res[i]._id}" class="dateTask">Data wykonania: ${res[i].dateTask}</li>
                 <li id="${res[i]._id}" class="description">Komentarz: ${res[i].description}</li></ul></div>`;
                 el.innerHTML = newDiv;
@@ -111,9 +111,25 @@ async function showTasks() {
     .catch(err => alert(err));
 }
 
-$('.trash').click(function () {
-    $('.search-div').hide();
-});
+function remove(){
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('myParam');
+
+    fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/:${res[i]._id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "x-auth-token": myParam
+            }
+        })
+        .then(res => res.json())
+        .catch(err => alert(err));
+
+        let refresh = window.location.href;
+        window.location.href = "";
+        window.location.href = refresh;
+}
 
 
 // DODAJ NOWE ZADANIE
