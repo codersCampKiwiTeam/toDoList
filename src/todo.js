@@ -5,7 +5,7 @@ $('.fa-search').click(function () {
 	if (!searchTerm)
 		return;
 
-	let items = searchIn.find("a");
+	let items = searchIn.find("span");
 
 	for (let item of items) {
 		if (item.innerHTML === searchTerm) {
