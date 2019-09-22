@@ -112,22 +112,6 @@ async function showTasks() {
 }
 
 function remove(){
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const myParam = urlParams.get('myParam');
-
-    fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/${res[i]._id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "x-auth-token": myParam
-            }
-        })
-        .then(res => res.json())
-        .catch(err => alert(err));
-
-        let refresh = window.location.href;
-        window.location.href = "";
         window.location.href = refresh;
 }
 
