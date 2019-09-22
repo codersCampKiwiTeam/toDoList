@@ -36,7 +36,7 @@ for (let i=0; i < taskID.length; i++){
         const urlParams = new URLSearchParams(window.location.search);
         const myParam = urlParams.get('myParam');
     
-        fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/:${e.target.id}`, {         // DODAĆ ADRES!
+        fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/:${e.target.id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -79,7 +79,7 @@ async function showTasks() {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('myParam');
 
-    await fetch('https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks', {         // DODAĆ ADRES!
+    await fetch('https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks', {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -99,8 +99,8 @@ async function showTasks() {
                 el.setAttribute("spellcheck", "false");
                 let newDiv = "";
                 newDiv += `<a href="#" class="nameTask" id="${res[i]._id}">${res[i].nameTask}</a>
-                <button id="${res[i]._id}" class="trash" type="submit" onclick="remove(${res[i]._id})"><i class="fas fa-trash-alt"></i></button>
-                <div id="${res[i]._id}"><ul id="${res[i]._id}"><li id="${res[i]._id}" class="dateTask">Data wykonania: ${res[i].dateTask}</li>
+                <button id="${res[i]._id}" class="trash" type="submit" onclick=""><i class="fas fa-trash-alt"></i></button>
+                <div id="${res[i]._id}"><ul id="${res[i]._id}"><li id="${res[i]._id}" class="dateTask">Data wykonania: ${res[i].dateTask.slice(0, 10)}</li>
                 <li id="${res[i]._id}" class="description">Komentarz: ${res[i].description}</li></ul></div>`;
                 el.innerHTML = newDiv;
                 document.getElementById(`${res[i].status}`).appendChild(el);
@@ -109,10 +109,6 @@ async function showTasks() {
 
     })
     .catch(err => alert(err));
-}
-
-function remove(){
-        window.location.href = refresh;
 }
 
 
@@ -174,7 +170,7 @@ async function saveNewTask() {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('myParam');
 
-    await fetch('https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks', { // DODAĆ ADRES!
+    await fetch('https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks', {
             method: "POST",
             body: JSON.stringify(body),
             headers: {
