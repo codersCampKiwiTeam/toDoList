@@ -14,22 +14,22 @@
 <body>
     <div class="login-page">
         <div class="form">
-            <form class="login-form" onsubmit="return false">
+            <form class="login-form">
                 <label for="login-name">Email: </label><input id="login-name" type="text"
-                    placeholder="Wpisz email...">
+                    placeholder="Wpisz adres e-mail...">
                 <label for="login-password">Hasło: </label><input id="login-password" type="password"
                     placeholder="Wpisz hasło...">
-                <button class="login-btn" type="submit">Zaloguj</button>
+                <button class="login-btn" type="submit" onclick="logIn()">Zaloguj</button>
                 <p><a href="#">Nie masz jeszcze konta? Zarejestruj się!</a></p>
             </form>
-            <form class="register-form" onsubmit="return false">
+            <form class="register-form">
                 <label for="register-email">Email: </label><input id="register-email" type="email"
                     placeholder="Wpisz email...">
                 <label for="register-name">Nazwa użytkownika: </label><input id="register-name" type="text"
                     placeholder="Wpisz nazwę użytkownika...">
                 <label for="register-password">Hasło: </label><input id="register-password" type="password"
                     placeholder="Wpisz hasło...">
-                <button class="register-btn" type="submit">Utwórz konto</button>
+                <button class="register-btn" type="submit" onclick="register()">Utwórz konto</button>
                 <p><a href="#">Masz już konto? Zaloguj się!</a></p>
             </form>
         </div>

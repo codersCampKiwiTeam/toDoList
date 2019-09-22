@@ -12,19 +12,9 @@ $('.form button').click(function () {
     }, "slow")
 })
 
-document.getElementsByClassName("login-btn")[0].addEventListener("click", event => {
-    event.preventDefault();
-    logIn();
-}, false)
-
-document.getElementsByClassName("register-btn")[0].addEventListener("click", event => {
-    event.preventDefault();
-    register();
-}, false)
-
 // Logowanie:
 let user;
-const logIn = () => {	
+const logIn = () => {
     let loginName = document.getElementById("login-name").value;
     let loginPassword = document.getElementById("login-password").value;
     logData(loginName, loginPassword);
@@ -34,27 +24,23 @@ const logData = async (loginName, loginPassword) => {
         "loginName": loginName,
         "loginPassword": loginPassword
     }
-
-    await fetch('https://stormy-shore-69652.herokuapp.com/users/login', {
+    // Autentykacja do poprawy
+    await fetch('https://kiwitodoapp.herokuapp.com/users/login', { // Dodać adres!
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
             "Content-Type": "application/json"
         }
     })
-    .then(res =>{
-        if(res.status !== 200){
-			res.text()
-			.then(body => {
-				return alert(body);
-			})
+    .then(res => res.text())
+    .then(res =>{console.log(res)
+        if(res=='Invalid email or password'){
+            return alert("Invalid email or password")
         } 
-        else {
-			res.text().
-			then (body => {
-				sessionStorage.setItem("token", body)
-				window.location.href = "./todo.html";
-			})
+        else{
+            console.log(res);
+            var queryString = `?myParam=${res}`;
+            window.location.href = "./todo.html" + queryString;
         }
     })
     .catch(err => console.log(err));
@@ -73,20 +59,18 @@ const registerData = async (registerEmail, registerName, registerPassword) => {
         "registerName": registerName,
         "registerPassword": registerPassword
     }
-	
-    await fetch('https://stormy-shore-69652.herokuapp.com/users/register', { // Dodać adres!
+    // Autentykacja do poprawy
+    await fetch('https://kiwitodoapp.herokuapp.com/users/register', { // Dodać adres!
         method: "POST",
         body: JSON.stringify(registerUser),
         headers: {
             "Content-Type": "application/json"
         }
     })
-    .then(res => {
-        if (res.status !== 200) {
-			res.text()
-			.then(body => {
-				return alert(body);
-			});
+    .then(res => res.text())
+    .then(res => {console.log(res)
+        if (res[0] !== "{") {
+            return alert(res);
         }
         else {
             return window.location.href = "./index.html"

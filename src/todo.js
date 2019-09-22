@@ -1,136 +1,114 @@
 // SEARCH
-let searchIn = $('#urgent');
-$('.fa-search').click(function () {
-    const searchTerm = document.getElementById('search').value;
-	if (!searchTerm)
-		return;
+$('#search-btn').on("click", function () {
+	var szukana_fraza = $('#search').val();
 	
-	let items = searchIn.find( "a" );
-	
-	for(let item of items) {
-		if (item.innerHTML === searchTerm) {
-			item.scrollIntoView();
-			break;
-		}
-    }
+  if(szukana_fraza.length === 0) {
+		$('.tasks .taskOk').css("color", "black");
+  	return;
+  }
+    
+	$('.tasks').find(".taskOk").each( function() {
+		if($(this).text().toUpperCase().indexOf(szukana_fraza.toUpperCase()) != -1)
+		{
+			$(this).css("color", "red");
+		} else {
+			$(this).css("color", "black");
+  	}
+	});
 });
+
 
 // LOG OUT
+
 $('.logout').click(function () {
-    sessionStorage.setItem('token', null);
-	return window.location.href = "./index.html";
+    window.location.href = "./index.html" + "?#";
 });
 
-// USUŃ ZADANIE
-async function deleteTask(e) {
-	const id = e.parentNode.parentNode.id;
-	await fetch(`https://stormy-shore-69652.herokuapp.com/tasks/${id}`, {
-		method: "DELETE",
-		headers: {
-			"Content-Type": "application/json",
-			"x-auth-token": sessionStorage.getItem('token')
-		}
-	})
-	.then(res => {
-		if (res.status === 401) {
-			return window.location.href = "./index.html";
-		}
-		else if (res.status !== 200) {
-			res.text()
-			.then(text => {
-				return alert(text);
-			});
-		}
-		else {
-			e.parentNode.parentNode.remove();
-		}
-	})
-	.catch(err => alert(err));
-}
 
-//OZNACZ JAKO ZROBIONE/NIEZROBIONE
-async function toggleSolved(e) {
-	const id = e.parentNode.parentNode.id;
-	await fetch(`https://stormy-shore-69652.herokuapp.com/tasks/toggleSolved/${id}`, {
-		method: "PUT",
-		headers: {
-			"Content-Type": "application/json",
-			"x-auth-token": sessionStorage.getItem('token')
-		}
-	})
-	.then(res => {
-		if (res.status === 401) {
-			return window.location.href = "./index.html";
-		}
-		else if (res.status !== 200) {
-			res.text()
-			.then(text => {
-				return alert(text);
-			});
-		}
-		else {
-			res.json()
-			.then(json => {
-				e.className = json.solved ? 'fas fa-check' : 'far fa-square';
-			});
-		}
-	})
-	.catch(err => alert(err));
+// USUŃ ZADANIE
+let taskID = document.getElementsByClassName('listItem');
+
+for (let i=0; i < taskID.length; i++){
+    taskID[i].addEventListener('click', function(e){
+
+        console.log(e);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('myParam');
+    
+        fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/:${e.target.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "x-auth-token": myParam
+            }
+        })
+        .then(res => res.json())
+        .catch(err => alert(err));
+
+        let refresh = window.location.href;
+        window.location.href = "";
+        window.location.href = refresh;
+});
 }
 
 // POKAŻ LISTĘ
-// po kliknięciu listy "pilne"
-$('.btn-pilne').click(function () {
-	searchIn = $('#urgent');
-    $('#urgent').show();
-    $('#moderate').hide();
-    $('#forLater').hide();
+// po kliknięciu listy "urgent"
+$('.btn-urgent').click(function () {
+    $('#divUrgent').show();
+    $('#divModerate').hide();
+    $('#divForLater').hide();
 });
-// po kliknięciu listy "umiarkowane"
-$('.btn-umiarkowane').click(function () {
-	searchIn = $('#moderate');
-    $('#urgent').hide();
-    $('#moderate').show();
-    $('#forLater').hide();
+// po kliknięciu listy "moderate"
+$('.btn-moderate').click(function () {
+    $('#divUrgent').hide();
+    $('#divModerate').show();
+    $('#divForLater').hide();
 });
 // po kliknięciu listy "na potem"
-$('.btn-naPotem').click(function () {
-	searchIn = $('#forLater');
-    $('#urgent').hide();
-    $('#moderate').hide();
-    $('#forLater').show();
+$('.btn-forLater').click(function () {
+    $('#divUrgent').hide();
+    $('#divModerate').hide();
+    $('#divForLater').show();
 });
 
 
 // POKAŻ ZADANIA
 async function showTasks() {
-    await fetch('https://stormy-shore-69652.herokuapp.com/tasks', {         // DODAĆ ADRES!
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('myParam');
+
+    await fetch('https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks', {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "x-auth-token": sessionStorage.getItem('token')
+            "x-auth-token": myParam
         }
     })
+    // .then(res => res.text())
+    // .then(text => console.log(text)) 
+    .then(res => res.json())
     .then(res => {
-		if (res.status === 401) {
-			return window.location.href = "./index.html";
-		}
-        else if (res.status !== 200) {
-			res.text()
-			.then(text => {
-				return alert(text);
-			});
-		}
-		else {
-			res.json()
-			.then(json => {
-				for (i=0;i<json.length;i++){
-					addItem(json[i]);
-				}
-			});
+
+        if(res){
+            for (i=0;i<res.length;i++){
+                const el = document.createElement("li");
+                el.classList.add("listItem");
+                el.setAttribute("id",`${res[i]._id}`);
+                el.setAttribute("spellcheck", "false");
+                let newDiv = "";
+                newDiv += `<a href="#" class="nameTask" id="${res[i]._id}">${res[i].nameTask}</a>
+                <button id="${res[i]._id}" class="trash" type="submit" onclick=""><i class="fas fa-trash-alt"></i></button>
+                <div id="${res[i]._id}"><ul id="${res[i]._id}"><li id="${res[i]._id}" class="dateTask">Data wykonania: ${res[i].dateTask.slice(0, 10)}</li>
+                <li id="${res[i]._id}" class="description">Komentarz: ${res[i].description}</li></ul></div>`;
+                el.innerHTML = newDiv;
+                document.getElementById(`${res[i].status}`).appendChild(el);
+            }
         }
+
     })
-    .catch(err => alert(err));
+    .catch(err => alert('W tej chwili nie można pobrać Twoich zadań'));
 }
 
 
@@ -147,11 +125,32 @@ $('.add-new-task').hover(function () {
 $(".main").click(function (e) {
     $('.add-task').hide();
 });
+$("body").click(function (e) {
+    e.stopPropagation();
+    $('.add-task').hide();
+});
 
 
 // NOWE ZADANIE - ZAPISZ
-const addTask = document.getElementsByClassName('add-task');
+const addTask = document.getElementsByClassName('.add-task');
 let editItem = null;
+
+function clearNewTaskArea() {
+    const allText = document.getElementsByClassName("text-area");
+    for (let i = 0; i <= allText.length; i++) {
+        if (allText[i] != null) {
+            allText[i].value = "";
+        }
+    }
+}
+
+function closeNewTaskArea() {
+    $(".add-task-btn").click(function (e) {
+        $('.add-task').hide();
+    });
+    clearNewTaskArea();
+    document.getElementById("add-task-btn").setAttribute("onclick", "saveNewTask()");
+}
 
 async function saveNewTask() {
     const nameTask = document.getElementById('name-task').value;
@@ -160,6 +159,11 @@ async function saveNewTask() {
     const e = document.getElementById('status-choice');
     const status = e.options[e.selectedIndex].value;
 
+    /*if (nameTask == '' || nameTask == null || description == '' || description == null) {
+        alert("Brak tytułu lub opisu zadania!")
+        return;
+    }*/
+
     const body = {
         'nameTask': nameTask,
         'dateTask': dateTask,
@@ -167,68 +171,36 @@ async function saveNewTask() {
         'status': status
     }
 
-    await fetch('https://stormy-shore-69652.herokuapp.com/tasks', {
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('myParam');
+
+    await fetch('https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks', {
             method: "POST",
             body: JSON.stringify(body),
             headers: {
                 "Content-Type": "application/json",
-                "x-auth-token": sessionStorage.getItem('token')
+                "x-auth-token": myParam
             }
         })
+        // .then(res => res.text())
+        // .then(text => console.log(text)) 
+        .then(res => res.json())
         .then(res => {
-			if (res.status === 401) {
-				return window.location.href = "./index.html";
-			}
-			else if (res.status !== 200) {
-				res.text()
-				.then(text => {
-					return alert(text);
-				});
-			}
-			else {
-				res.json()
-				.then(json => {
-					addItem(json);
-					clearNewTaskArea();
-				});
-			}
+            const el = document.createElement("div");
+            let newDiv = "";
+            newDiv += `<div id=${res._id} spellcheck="false">
+            <b class="nameTask">${res.nameTask}</b>
+            </br><span class="dateTask">${res.dateTask}</span>
+            </br><span class="description">
+            </br>${res.description}</span>
+            </br><b class="status">${res.status}</b></div>`;
+            el.innerHTML = newDiv;
+            document.getElementById(res.status).appendChild(el);
         })
         .catch(err => alert(err));
-}
 
-function addItem(item) {
-	const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-
-	let cls = 'class="far fa-square"';
-	if (item.solved) {
-		cls = 'class="fas fa-check"';
-	}
-	
-	const li = `
-	<li id=${item._id}><a href="#">${item.name}</a>
-		<div class="icons"><i class="fas fa-trash-alt" onclick="deleteTask(this)"></i><i ${cls} onclick="toggleSolved(this)"></i></div>
-		<div>
-			<ul>
-				<li>${new Date(item.date).toLocaleDateString("pl-PL", options)}</li>
-				<li>${item.description}</li>
-			</ul>
-		</div>
-	</li>`;
-	let group = document.getElementById(item.status);
-	let ul = group.getElementsByTagName("ul");
-	ul[0].innerHTML += li;
-}
-
-function clearNewTaskArea() {
-    const allText = document.getElementsByClassName("text-area");
-    for (let i = 0; i <= allText.length; i++) {
-        if (allText[i] != null) {
-            allText[i].value = null;
-        }
-    }
-}
-
-function closeNewTaskArea() {
-    clearNewTaskArea();
-	addTask.style.display = 'none';
+        clearNewTaskArea();
+        let refresh = window.location.href;
+        window.location.href = "";
+        window.location.href = refresh;
 }
