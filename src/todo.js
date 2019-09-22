@@ -232,4 +232,12 @@ function clearNewTaskArea() {
 function closeNewTaskArea() {
 	clearNewTaskArea();
 	document.querySelector('.add-task').style.display = "none";
+
 }
+
+$(document).mouseup(function (e) {
+	var container = $(".add-task");
+	if (!container.is(e.target) && container.has(e.target).length === 0) {
+		container.hide();
+	}
+});
