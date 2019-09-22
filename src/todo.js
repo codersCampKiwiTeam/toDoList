@@ -116,7 +116,7 @@ function remove(){
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('myParam');
 
-    fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/:${res[i]._id}`, {
+    fetch(`https://cors-anywhere.herokuapp.com/https://kiwitodoapp.herokuapp.com/tasks/${res[i]._id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
