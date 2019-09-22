@@ -328,8 +328,8 @@ select {
     }
 
     .add-new-task {
-        font-size: 0.8em;
-        padding: 5px;
+        font-size: 1.2em;
+        padding: 10px;
     }
 
     /* Add task */
