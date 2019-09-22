@@ -33,12 +33,6 @@ body {
     cursor: pointer;
 }
 
-#search-btn {
-    background-color: rgba(0, 0, 0, 0);
-    border: 0px;
-    font-size: 1.2em;
-}
-
 .logout {
     flex: 1 1 20%;
     font-size: 1.2em;
@@ -196,7 +190,8 @@ body {
 }
 
 .fa-trash-alt:hover,
-.fa-check:hover {
+.fa-check:hover,
+.fa-square:hover {
     font-weight: bold;
     transform: scale(1.4)
 }
