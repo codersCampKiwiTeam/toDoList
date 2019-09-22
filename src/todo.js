@@ -99,7 +99,7 @@ async function showTasks() {
                 el.setAttribute("spellcheck", "false");
                 let newDiv = "";
                 newDiv += `<a href="#" class="nameTask" id="${res[i]._id}">${res[i].nameTask}</a>
-                <button id="${res[i]._id}" class="trash" type="submit" onclick="remove()"><i class="fas fa-trash-alt"></i></button>
+                <button id="${res[i]._id}" class="trash" type="submit" onclick="remove(${res[i]._id})"><i class="fas fa-trash-alt"></i></button>
                 <div id="${res[i]._id}"><ul id="${res[i]._id}"><li id="${res[i]._id}" class="dateTask">Data wykonania: ${res[i].dateTask}</li>
                 <li id="${res[i]._id}" class="description">Komentarz: ${res[i].description}</li></ul></div>`;
                 el.innerHTML = newDiv;
