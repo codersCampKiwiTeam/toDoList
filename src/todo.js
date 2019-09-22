@@ -108,7 +108,7 @@ async function showTasks() {
         }
 
     })
-    .catch(err => alert(err));
+    .catch(err => alert('W tej chwili nie można pobrać Twoich zadań'));
 }
 
 
@@ -124,6 +124,10 @@ $('.add-new-task').hover(function () {
 // po kliknięciu na dowolny punkt poza "nowym zadaniem" div się ukrywa
 $(".main").click(function (e) {
     $('.add-task').hide();
+});
+$("body").click(function (e) {
+    $('.add-task').hide();
+    e.stopPropagation();
 });
 
 
