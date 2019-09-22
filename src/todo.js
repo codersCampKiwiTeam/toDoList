@@ -104,7 +104,7 @@ $('.btn-naPotem').click(function () {
 
 // POKAŻ ZADANIA
 async function showTasks() {
-    await fetch('https://stormy-shore-69652.herokuapp.com/tasks', {         // DODAĆ ADRES!
+    await fetch('https://stormy-shore-69652.herokuapp.com/tasks', {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -190,6 +190,7 @@ async function saveNewTask() {
 				.then(json => {
 					addItem(json);
 					clearNewTaskArea();
+					closeNewTaskArea()
 				});
 			}
         })

@@ -74,7 +74,7 @@ const registerData = async (registerEmail, registerName, registerPassword) => {
         "registerPassword": registerPassword
     }
 	
-    await fetch('https://stormy-shore-69652.herokuapp.com/users/register', { // Dodać adres!
+    await fetch('https://stormy-shore-69652.herokuapp.com/users/register', {
         method: "POST",
         body: JSON.stringify(registerUser),
         headers: {
