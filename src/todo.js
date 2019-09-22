@@ -8,7 +8,7 @@ $('.fa-search').click(function () {
 	let items = searchIn.find("span");
 
 	for (let item of items) {
-		if (item.innerHTML === searchTerm) {
+		if (item.innerHTML.toUpperCase() === searchTerm.toUpperCase()) {
 			item.scrollIntoView();
 			break;
 		}
