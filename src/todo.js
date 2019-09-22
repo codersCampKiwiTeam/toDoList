@@ -126,8 +126,8 @@ $(".main").click(function (e) {
     $('.add-task').hide();
 });
 $("body").click(function (e) {
-    $('.add-task').hide();
     e.stopPropagation();
+    $('.add-task').hide();
 });
 
 
