@@ -148,7 +148,7 @@ body {
 }
 
 .lists a,
-.tasks a {
+.tasks span {
     display: block;
     color: rgb(27, 29, 41);
     text-decoration: none;
@@ -159,6 +159,10 @@ body {
     transition: 0.2s linear;
 }
 
+.tasks span {
+    font-weight: bold;
+}
+
 .lists a {
     width: 100%;
 }
@@ -166,11 +170,6 @@ body {
 .lists li:hover {
     font-weight: bold;
     transform: scale(1.1);
-}
-
-.tasks a:hover {
-    font-weight: bold;
-    transform: scale(1.2)
 }
 
 .tasks .icons {
@@ -386,7 +385,6 @@ select {
     }
 
     .lists li:hover,
-    .tasks a:hover,
     .fa-trash-alt:hover,
     .fa-check:hover {
         font-weight: normal;
