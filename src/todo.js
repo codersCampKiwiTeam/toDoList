@@ -1,3 +1,7 @@
+import './list.css';
+import image from './img/pic2.jpg';
+import image1 from './img/kiwiLogo.jpg';
+
 // SEARCH
 let searchIn = $('#urgent');
 $('.fa-search').click(function () {
@@ -234,6 +238,9 @@ function closeNewTaskArea() {
 	document.querySelector('.add-task').style.display = "none";
 
 }
+
+let addTaskBtn = document.querySelector('.add-task-btn')
+addTaskBtn.addEventListener("click", saveNewTask);
 
 $(document).mouseup(function (e) {
 	var container = $(".add-task");
