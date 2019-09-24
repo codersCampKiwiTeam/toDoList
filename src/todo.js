@@ -1,6 +1,6 @@
-import './list.css';
-import image from './img/pic2.jpg';
-import image1 from './img/kiwiLogo.jpg';
+//import './list.css';
+//import image from './img/pic2.jpg';
+//import image1 from './img/kiwiLogo.jpg';
 
 
 // SEARCH
