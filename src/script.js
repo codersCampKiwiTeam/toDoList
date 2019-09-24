@@ -3,7 +3,6 @@ import image from './img/pic2.jpg';
 import image1 from './img/kiwiLogo.jpg';
 
 
-
 $('.form p a').click(function () {
     $('form').animate({
         height: "toggle",
@@ -42,12 +41,12 @@ const logData = async (loginName, loginPassword) => {
     }
 
     await fetch('https://stormy-shore-69652.herokuapp.com/users/login', {
-            method: "POST",
-            body: JSON.stringify(userData),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
         .then(res => {
             if (res.status !== 200) {
                 res.text()
@@ -56,10 +55,10 @@ const logData = async (loginName, loginPassword) => {
                     })
             } else {
                 res.text().
-                then(body => {
-                    sessionStorage.setItem("token", body)
-                    window.location.href = "./todo.html";
-                })
+                    then(body => {
+                        sessionStorage.setItem("token", body)
+                        window.location.href = "./todo.html";
+                    })
             }
         })
         .catch(err => console.log(err));
@@ -80,12 +79,12 @@ const registerData = async (registerEmail, registerName, registerPassword) => {
     }
 
     await fetch('https://stormy-shore-69652.herokuapp.com/users/register', {
-            method: "POST",
-            body: JSON.stringify(registerUser),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
+        method: "POST",
+        body: JSON.stringify(registerUser),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
         .then(res => {
             if (res.status !== 200) {
                 res.text()
@@ -98,3 +97,7 @@ const registerData = async (registerEmail, registerName, registerPassword) => {
         })
         .catch(err => console.log(err));
 }
+
+
+document.querySelector('.login-form').addEventListener("submit", function () { return false });
+document.querySelector('.register-form').addEventListener("submit", function () { return false })

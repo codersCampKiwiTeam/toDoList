@@ -2,6 +2,7 @@ import './list.css';
 import image from './img/pic2.jpg';
 import image1 from './img/kiwiLogo.jpg';
 
+
 // SEARCH
 let searchIn = $('#urgent');
 $('.fa-search').click(function () {
@@ -32,12 +33,12 @@ $('.logout').click(function () {
 async function deleteTask(e) {
 	const id = e.parentNode.parentNode.id;
 	await fetch(`https://stormy-shore-69652.herokuapp.com/tasks/${id}`, {
-			method: "DELETE",
-			headers: {
-				"Content-Type": "application/json",
-				"x-auth-token": sessionStorage.getItem('token')
-			}
-		})
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+			"x-auth-token": sessionStorage.getItem('token')
+		}
+	})
 		.then(res => {
 			if (res.status === 401) {
 				return window.location.href = "./index.html";
@@ -57,12 +58,12 @@ async function deleteTask(e) {
 async function toggleSolved(e) {
 	const id = e.parentNode.parentNode.id;
 	await fetch(`https://stormy-shore-69652.herokuapp.com/tasks/toggleSolved/${id}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-				"x-auth-token": sessionStorage.getItem('token')
-			}
-		})
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+			"x-auth-token": sessionStorage.getItem('token')
+		}
+	})
 		.then(res => {
 			if (res.status === 401) {
 				return window.location.href = "./index.html";
@@ -108,12 +109,12 @@ $('.btn-naPotem').click(function () {
 // POKAŻ ZADANIA
 async function showTasks() {
 	await fetch('https://stormy-shore-69652.herokuapp.com/tasks', {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				"x-auth-token": sessionStorage.getItem('token')
-			}
-		})
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+			"x-auth-token": sessionStorage.getItem('token')
+		}
+	})
 		.then(res => {
 			if (res.status === 401) {
 				return window.location.href = "./index.html";
@@ -134,6 +135,7 @@ async function showTasks() {
 		.catch(err => alert(err));
 }
 
+document.body.addEventListener("load", showTasks)
 
 // DODAJ NOWE ZADANIE
 // pokazuje ukryty div
@@ -169,13 +171,13 @@ async function saveNewTask() {
 	}
 
 	await fetch('https://stormy-shore-69652.herokuapp.com/tasks', {
-			method: "POST",
-			body: JSON.stringify(body),
-			headers: {
-				"Content-Type": "application/json",
-				"x-auth-token": sessionStorage.getItem('token')
-			}
-		})
+		method: "POST",
+		body: JSON.stringify(body),
+		headers: {
+			"Content-Type": "application/json",
+			"x-auth-token": sessionStorage.getItem('token')
+		}
+	})
 		.then(res => {
 			if (res.status === 401) {
 				return window.location.href = "./index.html";

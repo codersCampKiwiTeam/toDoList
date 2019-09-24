@@ -8,20 +8,21 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: __dirname + '/dist'
+        path: __dirname + '/dist',
+        publicPath: '/dist/'
     },
 
     module: {
         rules: [{
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use: [{
-                    loader: 'url-loader'
-                }]
-            },
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
+        },
+        {
+            test: /\.(png|jpg|gif)$/,
+            use: [{
+                loader: 'url-loader'
+            }]
+        },
         ],
     },
 
