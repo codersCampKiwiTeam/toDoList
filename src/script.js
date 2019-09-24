@@ -22,7 +22,15 @@ document.getElementsByClassName("login-btn")[0].addEventListener("click", event 
     logIn();
 }, false)
 
-document.getElementsByClassName("register-btn")[0].addEventListener("click", event => {
+document.getElementsByClassName("login-form")[0].addEventListener("click", event => {
+    event.preventDefault();
+}, false)
+
+document.getElementsByClassName("register-form")[0].addEventListener("submit", event => {
+    event.preventDefault();
+}, false)
+
+document.getElementsByClassName("register-btn")[0].addEventListener("submit", event => {
     event.preventDefault();
     register();
 }, false)
